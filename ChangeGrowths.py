@@ -49,7 +49,7 @@ def loadModule(dlg, modulePath):
 def alterClassGrowths(dlg, mode, arg):
     # Alters all class growths using specified Nightmare dialogue window
     # dlg: Dialogue/Initial Window with module loaded and on first class
-    # Direction: 'u' for up/increase, 'd' for down/decrease, 's' for set
+    # mode: 'u' for up/increase, 'd' for down/decrease, 's' for set
     # arg: usage depends on mode, if increase/decrease, it's the delta, if set, then its the value to set it to
     dropdown = dlg.Pane.Combobox0.Open
     match mode:
@@ -131,7 +131,7 @@ def setGrowths(dlg, growth):
     return
 
 def printNewlines(numLines):
-    # Just for debugging
+    # Just for debugging/organizing printed control output lines
     for i in range(numLines):
         print()
 
