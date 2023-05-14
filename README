@@ -8,5 +8,5 @@ The program also always changes the growth rates uniformly and for every class. 
 
 In the future I'd like to make the program responsive/interactive, where you are prompted to choose the paths to the relevant ROM/module, as well as specify what growth rate changes should occur.
 I'd also like to extend this into altering the growth rate of player-controlled units, which would likely be quite easy to implement, as all functions have been implemented with this in mind from the beginning.
-I'd also like to find a way to run the program as a background task, rather than having the user be blocked from using the PC for it to run properly. Since filling in each field for each class can be quite slow, 
-  you basically have to leave your computer for an extended period to allow it to run/finish properly. To address this, I'll need to have it run in the background, have it run a lot faster, or allow the user to stop/start a job at multiple points.
+I'd also like to find a way to run the program as a background task, rather than having the user be blocked from using the PC for it to run properly. \
+Since filling in each field for each class can be quite slow, you basically have to leave your computer for an extended period to allow it to run/finish properly. To address this, I'll need to have it run in the background, have it run a lot faster, or allow the user to stop/start a job at multiple points.
