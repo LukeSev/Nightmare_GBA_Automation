@@ -25,7 +25,7 @@ def main():
     openFile.print_control_identifiers()            # Print info
     printNewlines(5)
 
-    alterClassGrowths(openFile, 'u', 40)            # Increase Enemy Growth Rates by 40%        
+    alterClassGrowths(openFile, 'u', 31)            # Increase Enemy Growth Rates by 31%        
     time.sleep(5)
     openFile.menu_select("File -> Save Rom")        # Save changes to ROM
 
@@ -55,7 +55,7 @@ def alterClassGrowths(dlg, mode, arg):
     match mode:
         case 'u':
             # Increase growths
-            for i in range(LAST_CLASS-1):
+            for i in range(LAST_CLASS):
                 dropdown.click()                        # Open class dropdown
                 dlg.type_keys("0")                      # Select next class
                 dlg.type_keys("{TAB}")                  # Confirm 
@@ -63,7 +63,7 @@ def alterClassGrowths(dlg, mode, arg):
                 dlg.type_keys("{ENTER}")                # Save changes
         case 'd':
             # Decrease growths
-            for i in range(LAST_CLASS-1):
+            for i in range(LAST_CLASS):
                 dropdown.click()                        # Open class dropdown
                 dlg.type_keys("0")                      # Select next class
                 dlg.type_keys("{TAB}")                  # Confirm 
@@ -71,7 +71,7 @@ def alterClassGrowths(dlg, mode, arg):
                 dlg.type_keys("{ENTER}")                # Save changes
         case 's':
             # Set growths
-            for i in range(LAST_CLASS-1):
+            for i in range(LAST_CLASS):
                 dropdown.click()                        # Open class dropdown
                 dlg.type_keys("0")                      # Select next class
                 dropdown.click()                        # Confirm 
@@ -81,16 +81,16 @@ def alterClassGrowths(dlg, mode, arg):
 def increaseGrowths(dlg, delta):
     # Increases all class growths by [delta]%
     # dlg = dialogue for class/unit
-    increaseStatGrowth(dlg.HPGrowthEdit0, delta)       # HP
-    increaseStatGrowth(dlg.STRMGCGrowthEdit0, delta)   # STR/MGC
-    increaseStatGrowth(dlg.SKLGrowthEdit0, delta)      # SKL
-    increaseStatGrowth(dlg.SPDGrowthEdit0, delta)      # SPD
-    increaseStatGrowth(dlg.DEFGrowthEdit0, delta)      # DEF
-    increaseStatGrowth(dlg.MDFGrowthEdit0, delta)      # MDF
-    increaseStatGrowth(dlg.LUKGrowthEdit0, delta)      # LUK
+    increaseStatGrowth(dlg.HPGrowthEdit0, delta)        # HP
+    increaseStatGrowth(dlg.STRMGCGrowthEdit0, delta)    # STR/MGC
+    increaseStatGrowth(dlg.SKLGrowthEdit0, delta)       # SKL
+    increaseStatGrowth(dlg.SPDGrowthEdit0, delta)       # SPD
+    increaseStatGrowth(dlg.DEFGrowthEdit0, delta)       # DEF
+    increaseStatGrowth(dlg.MDFGrowthEdit0, delta)       # MDF
+    increaseStatGrowth(dlg.LUKGrowthEdit0, delta)       # LUK
 
 def increaseStatGrowth(dlg_growth, delta):
-    # Set growth to 127 if over 128, otherwise you get negative value
+    # Set growth to 127 if >= 128, otherwise you get negative value
     newGrowth = int(dlg_growth.get_value()) + delta
     if(newGrowth > 127):
         newGrowth = 127
@@ -100,13 +100,13 @@ def decreaseGrowths(dlg, delta):
     # Decrease all class growths by [delta]%
     # dlg = dialogue for class/unit
     # Helper function used to handle new growths potentially being < 0
-    decreaseStatGrowth(dlg.HPGrowthEdit0, delta)       # HP
-    decreaseStatGrowth(dlg.STRMGCGrowthEdit0, delta)   # STR/MGC
-    decreaseStatGrowth(dlg.SKLGrowthEdit0, delta)      # SKL
-    decreaseStatGrowth(dlg.SPDGrowthEdit0, delta)      # SPD
-    decreaseStatGrowth(dlg.DEFGrowthEdit0, delta)      # DEF
-    decreaseStatGrowth(dlg.MDFGrowthEdit0, delta)      # MDF
-    decreaseStatGrowth(dlg.LUKGrowthEdit0, delta)      # LUK
+    decreaseStatGrowth(dlg.HPGrowthEdit0, delta)        # HP
+    decreaseStatGrowth(dlg.STRMGCGrowthEdit0, delta)    # STR/MGC
+    decreaseStatGrowth(dlg.SKLGrowthEdit0, delta)       # SKL
+    decreaseStatGrowth(dlg.SPDGrowthEdit0, delta)       # SPD
+    decreaseStatGrowth(dlg.DEFGrowthEdit0, delta)       # DEF
+    decreaseStatGrowth(dlg.MDFGrowthEdit0, delta)       # MDF
+    decreaseStatGrowth(dlg.LUKGrowthEdit0, delta)       # LUK
 
 def decreaseStatGrowth(dlg_growth, delta):
     # Set growth to 0 if difference would result in value < 0
